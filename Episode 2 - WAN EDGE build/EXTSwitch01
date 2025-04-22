@@ -12,7 +12,7 @@ interface GigabitEthernet0/0
  negotiation auto
 
 interface GigabitEthernet0/1
- description desc Link to pfSense01 e0
+ description Link to pfSense01 e0
  switchport trunk encapsulation dot1q
  switchport mode trunk
  negotiation auto
