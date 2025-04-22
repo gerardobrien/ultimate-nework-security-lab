@@ -1,0 +1,31 @@
+
+track 1 interface GigabitEthernet0/3 line-protocol
+
+interface GigabitEthernet0/0
+ description Link to Customer ISPRouter02 gi0/0
+ no ip address
+ duplex auto
+ speed auto
+ media-type rj45
+exit
+interface GigabitEthernet0/0.100
+description Link VLAN100 Interace
+ encapsulation dot1Q 100
+ ip address 10.1.1.253 255.255.255.0
+ standby 10 ip 10.1.1.254
+ standby 10 preempt
+ standby 10 authentication gob
+exit
+interface GigabitEthernet0/3
+ description ISP Uplink
+ ip address 10.96.12.4 255.255.255.0
+ standby 12 ip 10.96.12.5
+ standby 12 preempt
+ standby 12 authentication gob
+ standby 12 track 1 decrement 10
+exit
+
+
+ip route 0.0.0.0 0.0.0.0 10.96.12.254
+ip route 10.2.1.0 255.255.255.0 10.1.1.251
+ip route 10.3.1.0 255.255.255.0 10.1.1.251

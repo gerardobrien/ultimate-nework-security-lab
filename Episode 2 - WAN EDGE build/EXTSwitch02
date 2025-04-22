@@ -1,0 +1,24 @@
+
+
+hostname EXTSwitch02
+
+vlan 100
+name EXT-VLAN-100
+
+interface GigabitEthernet0/0
+ description Link to ISPRouter02 Gi0/0
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ negotiation auto
+
+interface GigabitEthernet0/1
+ description desc Link to pfSense02 e0
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ negotiation auto
+
+interface GigabitEthernet0/2
+ description Link to EXTSwitch01 Gi0/2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ negotiation auto
