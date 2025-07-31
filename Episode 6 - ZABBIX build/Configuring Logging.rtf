@@ -1,7 +1,8 @@
 conf t
   snmp-server community public RO
-  logging host 10.96.12.237
+  logging host IP ADDRESS OF YOUR ZABBIX SERVER
   logging trap informational
   service timestamps log datetime msec
   end
-  wr
+  
+wr
